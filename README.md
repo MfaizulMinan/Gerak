@@ -92,4 +92,10 @@ lib/
 ---
 
 ## 📄 Lisensi
-Project ini dibuat untuk memenuhi tugas mata kuliah **Pemrograman Mobile** (UAS Pemrograman Mobile). Hak cipta dilindungi oleh pengembang masing-masing.
+Project ini dibuat untuk memenuhi tugas mata kuliah **Pemrograman Mobile** (UAS Pemrograman Mobile). Seluruh kode di dalam repositori ini diperuntukkan bagi tujuan pendidikan.
+
+Copyright (c) 2024:
+
+1. Shendi Bagus Prasetyo (24091397036)
+2. Muhammad Faizul Minan (24091397048)
+3. Angelica Immanuela Nazarina (24091397050)
