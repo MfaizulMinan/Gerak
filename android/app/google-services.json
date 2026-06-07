@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "904470300360",
+    "project_id": "gerak-34866",
+    "storage_bucket": "gerak-34866.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904470300360:android:b418fab94b17e966f907fd",
+        "android_client_info": {
+          "package_name": "com.example.gerak"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "904470300360-8aiql1h0qgrajkgdk8uii8ic7045l4ac.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gerak",
+            "certificate_hash": "7dea0afc5bfdb7b8f508b31f9752733b8e95e38c"
+          }
+        },
+        {
+          "client_id": "904470300360-5ai6c6i45auicnrdatv9tkebrnmg31tp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxh6CdARYsNA-GFiDLMtn5FXPTwOFXxTM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "904470300360-5ai6c6i45auicnrdatv9tkebrnmg31tp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "904470300360-4cbn1df6156ng2nnbm5jaafatmo751lf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.gerak"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,509 @@
+﻿Total pages: 17
+=== PAGE 1 ===
+PROPOSAL UJIAN AKHIR SEMESTER
+PENGEMBANGAN APLIKASI MOBILE FITNESS TRACKER "GERAK"
+MENGGUNAKAN FLUTTER, FIREBASE, DAN AI
+Mata Kuliah
+Pemrograman Mobile
+Oleh
+Kelompok 2
+Shendi Bagus Prasetyo 24091397036
+Muhammad Faizul Minan 24091397048
+Angelica Immanuela Nazarina 24091397050
+2024B
+PROGRAM STUDI D4 MANAJEMEN INFORMATIKA
+FAKULTAS VOKASI
+UNIVERSITAS NEGERI SURABAYA
+2026
+=== PAGE 2 ===
+DAFTAR ISI
+BAB I PENDAHULUAN ..........................................................................................................1
+1.1 Latar Belakang .................................................................................................................1
+1.2 Identifikasi Masalah .........................................................................................................2
+1.3 Rumusan Masalah ............................................................................................................2
+1.4 Tujuan .............................................................................................................................. 3
+1.5 Batasan Masalah .............................................................................................................. 3
+BAB II STUDI LITERATUR ................................................................................................... 4
+2.1 Aplikasi Fitness Tracker Mobile ..................................................................................... 4
+2.2 Flutter ? Framework Pengembangan Lintas Platform ...................................................4
+2.3 Firebase ? Backend as a Service (BaaS) ........................................................................5
+2.3.1 Firebase Firestore ......................................................................................................5
+2.3.2 Firebase Authentication ............................................................................................ 5
+2.4 Animasi dalam Aplikasi Mobile ......................................................................................5
+2.4.1 Hero Animation ........................................................................................................ 5
+2.4.2 Lottie Animation .......................................................................................................6
+2.4.3 Animated List dan Confetti ...................................................................................... 6
+2.5 Kecerdasan Buatan dalam Aplikasi Kesehatan ............................................................... 6
+2.6 Body Mass Index (BMI) dan Metrik Kesehatan ..............................................................7
+2.7 Tinjauan Aplikasi Sejenis ................................................................................................ 7
+BAB III FITUR APLIKASI ...................................................................................................... 9
+3.1 Gambaran Umum Aplikasi .............................................................................................. 9
+3.2 Splash Screen dan Onboarding ........................................................................................9
+3.3 Autentikasi Pengguna (Login & Register) .................................................................... 10
+3.4 Dashboard (Halaman Utama) ........................................................................................ 10
+3.5 Tracking Latihan Harian ................................................................................................11
+3.6 Program Fitness Jangka Panjang ................................................................................... 11
+3.7 Chatbot AI ? Konsultasi Fitness .................................................................................. 12
+3.8 Riwayat dan Progress .................................................................................................... 12
+3.9 Profil Pengguna ............................................................................................................. 13
+3.10 Pemetaan Animasi ....................................................................................................... 13
+3.11 Arsitektur Database Firestore ...................................................................................... 14
+3.12 Ringkasan Checklist Requirement ...............................................................................14
+=== PAGE 3 ===
+1
+BAB I PENDAHULUAN
+1.1 Latar Belakang
+Di era digital yang terus berkembang, kesadaran masyarakat terhadap pentingnya
+gaya hidup sehat dan aktif semakin meningkat. Fenomena ini turut didorong oleh mudahnya
+akses informasi kesehatan melalui smartphone dan internet. Data dari Kementerian
+Kesehatan Republik Indonesia menunjukkan bahwa prevalensi penyakit tidak menular seperti
+obesitas, diabetes tipe 2, dan hipertensi terus mengalami kenaikan dari tahun ke tahun, yang
+sebagian besar dipicu oleh kurangnya aktivitas fisik dan pola makan yang tidak teratur.
+Seiring berkembangnya teknologi mobile, aplikasi fitness tracker telah menjadi salah
+satu solusi digital yang populer untuk membantu individu memantau dan meningkatkan
+kualitas aktivitas fisik mereka. Berdasarkan laporan Global Mobile App Market, kategori
+health and fitness merupakan salah satu kategori aplikasi dengan pertumbuhan unduhan
+tertinggi secara global, bahkan meningkat drastis pasca-pandemi COVID-19. Hal ini
+membuktikan bahwa masyarakat semakin memanfaatkan perangkat mobile sebagai alat bantu
+dalam menjalani program kesehatan.
+Meski demikian, banyak aplikasi fitness yang tersedia di pasaran memiliki
+keterbatasan, di antaranya: tidak tersedia dalam Bahasa Indonesia yang ramah bagi pengguna
+lokal, tidak terintegrasi antara program latihan dan panduan nutrisi secara bersamaan, serta
+tidak menyediakan fitur konsultasi cerdas berbasis kecerdasan buatan (AI) yang dapat
+memberikan saran personal. Kondisi ini menciptakan peluang untuk mengembangkan sebuah
+aplikasi fitness tracker yang komprehensif, personal, dan berbasis teknologi mutakhir.
+Aplikasi yang dikembangkan dalam proyek ini merupakan sebuah mobile application
+berbasis Flutter yang menggunakan Firebase sebagai backend, dengan fitur unggulan
+meliputi: pelacakan latihan harian, program fitness jangka panjang, pemantauan nutrisi, serta
+chatbot AI berbasis Gemini API. Dengan pendekatan ini, diharapkan aplikasi mampu
+menjadi solusi fitness tracker yang menyeluruh, terintegrasi, dan mudah digunakan oleh
+masyarakat umum.
+=== PAGE 4 ===
+2
+1.2 Identifikasi Masalah
+Berdasarkan latar belakang yang telah diuraikan, terdapat beberapa permasalahan
+yang diidentifikasi pada kondisi saat ini:
+? Kurangnya kedisiplinan individu dalam menjalankan program olahraga secara
+konsisten tanpa dukungan sistem pemantauan yang terstruktur.
+? Banyak pengguna yang kesulitan mengintegrasikan aspek latihan fisik dengan
+perencanaan nutrisi dalam satu platform yang mudah digunakan.
+? Minimnya aplikasi fitness lokal berbahasa Indonesia yang dilengkapi dengan fitur
+animasi panduan gerakan untuk mencegah cedera saat berolahraga.
+? Tidak adanya fitur konsultasi AI yang kontekstual, yakni yang mampu memahami
+progress dan program aktif pengguna untuk memberikan saran yang lebih personal
+dan relevan.
+? Sulitnya pengguna memantau perkembangan fisik mereka secara visual melalui grafik
+dan riwayat aktivitas yang terstruktur.
+1.3 Rumusan Masalah
+Berdasarkan identifikasi masalah yang telah dipaparkan, maka rumusan masalah
+dalam proyek ini adalah:
+1. Bagaimana merancang dan membangun aplikasi fitness tracker mobile yang mampu
+memfasilitasi pengguna dalam melakukan pencatatan latihan harian secara lengkap
+menggunakan fitur CRUD berbasis Firebase Firestore?
+2. Bagaimana mengimplementasikan sistem program fitness jangka panjang yang
+terintegrasi dengan panduan nutrisi harian serta jadwal latihan otomatis dalam sebuah
+aplikasi mobile berbasis Flutter?
+3. Bagaimana menerapkan fitur animasi yang informatif ? termasuk animasi Lottie,
+Hero Animation, Animated List, dan efek Confetti ? untuk meningkatkan
+pengalaman pengguna (user experience) dalam aplikasi fitness?
+4. Bagaimana mengintegrasikan chatbot berbasis kecerdasan buatan (Gemini API) yang
+mampu memahami konteks program dan progress pengguna untuk memberikan
+rekomendasi fitness dan nutrisi yang personal?
+5. Bagaimana membangun sistem autentikasi yang aman menggunakan Firebase
+Authentication serta menyediakan dashboard yang menampilkan ringkasan data
+kesehatan pengguna secara real-time?
+=== PAGE 5 ===
+3
+1.4 Tujuan
+Tujuan dari pengembangan aplikasi fitness tracker ini adalah:
+6. Membangun aplikasi mobile berbasis Flutter yang memenuhi seluruh requirement
+wajib mata kuliah, meliputi CRUD, database Firebase, autentikasi, dan minimal 2
+jenis animasi.
+7. Menghadirkan platform fitness tracker yang komprehensif dengan fitur pelacakan
+latihan, program jangka panjang, panduan nutrisi, dan monitoring progress pengguna
+dalam satu aplikasi.
+8. Menerapkan teknologi kecerdasan buatan melalui integrasi Gemini API sebagai
+chatbot konsultasi fitness yang kontekstual dan personal.
+9. Memberikan pengalaman pengguna yang menyenangkan melalui desain antarmuka
+yang modern, animasi yang informatif, dan sistem reward (streak, confetti) yang
+memotivasi pengguna.
+1.5 Batasan Masalah
+Guna menjaga fokus dan kelayakan pengerjaan dalam batas waktu yang ditentukan,
+proyek ini memiliki batasan sebagai berikut:
+? Aplikasi dikembangkan hanya untuk platform Android menggunakan Flutter SDK.
+? Backend service menggunakan Firebase (Firestore dan Authentication) tanpa server
+custom.
+? Chatbot AI dibatasi hanya untuk topik fitness, olahraga, dan nutrisi ? tidak
+mencakup konsultasi medis klinis.
+? Estimasi kalori yang ditampilkan bersifat aproksimasi dan tidak menggantikan saran
+dari ahli gizi profesional.
+? Data animasi Lottie menggunakan aset yang tersedia secara publik atau dibuat dengan
+tools open-source.
+=== PAGE 6 ===
+4
+BAB II STUDI LITERATUR
+2.1 Aplikasi Fitness Tracker Mobile
+Fitness tracker merupakan perangkat lunak yang dirancang untuk membantu
+pengguna memantau, mencatat, dan mengevaluasi aktivitas fisik mereka secara sistematis.
+Menurut penelitian yang dilakukan oleh Asimakopoulos et al. (2017), penggunaan aplikasi
+mobile fitness tracker secara konsisten terbukti meningkatkan motivasi pengguna untuk
+berolahraga hingga 27% dibandingkan dengan pengguna yang tidak menggunakan aplikasi
+serupa.
+Fitur-fitur kunci yang umumnya dimiliki oleh aplikasi fitness tracker modern meliputi:
+pencatatan aktivitas fisik, perhitungan kalori, pemantauan berat badan, serta program latihan
+terstrukture. Riset dari Linardon & Messer (2019) menegaskan bahwa fitur gamifikasi seperti
+streak dan reward system secara signifikan berkontribusi pada retensi pengguna jangka
+panjang.
+2.2 Flutter ? Framework Pengembangan Lintas Platform
+Flutter adalah open-source UI software development kit (SDK) yang dikembangkan
+oleh Google, pertama kali dirilis secara stabil pada tahun 2018. Flutter menggunakan bahasa
+pemrograman Dart dan memungkinkan pengembang untuk membangun aplikasi mobile, web,
+dan desktop dari satu basis kode yang sama (single codebase cross-platform development).
+Keunggulan utama Flutter dibanding framework cross-platform lain seperti React
+Native adalah penggunaan widget rendering engine sendiri berbasis Skia/Impeller, sehingga
+tampilan antarmuka bersifat pixel-perfect dan konsisten di berbagai perangkat tanpa
+bergantung pada komponen UI native. Selain itu, fitur Hot Reload pada Flutter
+memungkinkan pengembang melihat perubahan kode secara instan tanpa perlu melakukan
+full rebuild, sehingga mempercepat siklus pengembangan secara signifikan.
+Dalam konteks pengembangan aplikasi ini, Flutter dipilih karena ekosistem package-
+nya yang kaya (tersedia di pub.dev), dukungan native untuk animasi yang kaya melalui
+AnimationController dan widget bawaan, serta kompatibilitas yang baik dengan Firebase
+SDK untuk Dart.
+=== PAGE 7 ===
+5
+2.3 Firebase ? Backend as a Service (BaaS)
+2.3.1 Firebase Firestore
+Firebase Cloud Firestore adalah layanan database NoSQL berbasis cloud yang
+dikembangkan oleh Google. Berbeda dengan database relasional tradisional, Firestore
+menyimpan data dalam bentuk dokumen yang dikelompokkan ke dalam koleksi (collection).
+Setiap dokumen dapat memiliki sub-koleksi, sehingga memungkinkan struktur data yang
+hierarkis dan fleksibel.
+Firestore mendukung sinkronisasi data secara real-time (real-time listener), artinya
+perubahan data di server langsung tercermin pada antarmuka pengguna tanpa perlu
+melakukan polling manual. Fitur ini sangat relevan untuk aplikasi fitness tracker yang
+memerlukan pembaruan data progress secara instan. Firestore juga menyediakan mekanisme
+offline persistence, sehingga aplikasi tetap dapat berfungsi meski tidak terhubung ke internet.
+2.3.2 Firebase Authentication
+Firebase Authentication menyediakan layanan autentikasi pengguna yang aman dan
+mudah diintegrasikan. Layanan ini mendukung berbagai metode autentikasi, termasuk
+email/password, nomor telepon, serta penyedia identity pihak ketiga seperti Google,
+Facebook, dan Apple. Firebase Authentication menggunakan standar keamanan industri
+seperti OAuth 2.0 dan OpenID Connect untuk memastikan keamanan data pengguna.
+Dalam aplikasi ini, Firebase Authentication digunakan untuk mengelola proses
+registrasi, login, dan logout pengguna. Integrasi dengan Firestore memungkinkan setiap data
+pengguna tersimpan secara terisolasi berdasarkan unique user ID (UID) yang dihasilkan oleh
+Firebase, sehingga privasi data terjaga.
+2.4 Animasi dalam Aplikasi Mobile
+2.4.1 Hero Animation
+Hero Animation merupakan salah satu jenis animasi bawaan Flutter yang
+memungkinkan sebuah widget "terbang" secara animatif dari satu halaman (route) ke
+halaman lainnya selama proses navigasi. Animasi ini menciptakan efek transisi visual yang
+mulus dan kontekstual, karena widget yang sama tampak bergerak dan bertransformasi dari
+posisi asalnya ke posisi tujuan. Hero Animation sangat efektif untuk meningkatkan
+kesinambungan visual antar halaman, terutama pada kasus list-to-detail navigation seperti
+daftar latihan menuju halaman detail latihan.
+=== PAGE 8 ===
+6
+2.4.2 Lottie Animation
+Lottie adalah library animasi open-source yang dikembangkan oleh Airbnb,
+memungkinkan pemutaran animasi vektor beresolusi tinggi yang diekspor dari Adobe After
+Effects dalam format JSON. Keunggulan utama Lottie dibanding GIF adalah ukuran file yang
+jauh lebih kecil, kualitas rendering yang tajam di semua resolusi layar, serta kemampuan
+untuk dikontrol secara programatik (play, pause, loop, kecepatan).
+Dalam konteks aplikasi fitness, Lottie dimanfaatkan untuk menampilkan animasi stick
+man yang menunjukkan cara melakukan gerakan latihan dengan benar. Penggunaan animasi
+panduan gerakan ini terbukti mengurangi risiko cedera bagi pengguna pemula yang belum
+familiar dengan teknik olahraga yang benar.
+2.4.3 Animated List dan Confetti
+AnimatedList adalah widget Flutter bawaan yang memungkinkan penambahan dan
+penghapusan item dari sebuah list dengan animasi yang smooth. Setiap item yang
+ditambahkan akan muncul dengan animasi slide-in atau fade-in, sementara item yang dihapus
+akan menghilang dengan transisi yang elegan, menciptakan pengalaman interaksi yang lebih
+natural dan responsif.
+Confetti animation, yang diimplementasikan menggunakan package seperti confetti
+atau flutter_confetti, digunakan sebagai feedback visual positif ketika pengguna mencapai
+milestone tertentu, seperti menyelesaikan program fitness atau mempertahankan streak
+latihan. Berdasarkan prinsip-prinsip gamifikasi (Deterding et al., 2011), efek visual reward
+seperti confetti terbukti meningkatkan dopamine release pengguna dan mendorong perilaku
+positif yang berulang.
+2.5 Kecerdasan Buatan dalam Aplikasi Kesehatan
+Integrasi kecerdasan buatan (Artificial Intelligence / AI) dalam aplikasi kesehatan dan
+kebugaran telah menjadi tren yang signifikan dalam beberapa tahun terakhir. Large Language
+Model (LLM) seperti Google Gemini dan OpenAI GPT memungkinkan pengembangan
+chatbot yang mampu memahami konteks percakapan, memberikan rekomendasi personal,
+dan merespons pertanyaan dalam bahasa natural (Natural Language Processing).
+Gemini API yang dikembangkan oleh Google menyediakan akses terhadap model
+bahasa generatif yang dapat diintegrasikan ke dalam aplikasi mobile melalui REST API.
+Dengan menggunakan system prompt yang terstruktur, perilaku chatbot dapat dibatasi pada
+=== PAGE 9 ===
+7
+domain tertentu ? dalam hal ini, fitness dan nutrisi ? sehingga respons yang diberikan lebih
+fokus, akurat, dan relevan bagi pengguna. Pendekatan Retrieval-Augmented Generation
+(RAG) dapat diterapkan untuk memperkaya konteks chatbot dengan data program dan
+progress pengguna yang tersimpan di Firestore.
+2.6 Body Mass Index (BMI) dan Metrik Kesehatan
+Body Mass Index (BMI) atau Indeks Massa Tubuh adalah ukuran yang paling umum
+digunakan untuk mengklasifikasikan status gizi seseorang berdasarkan perbandingan antara
+berat badan (kg) dan kuadrat tinggi badan (m). Formula BMI adalah: BMI = Berat Badan (kg)
+/ (Tinggi Badan (m))^2. Menurut pedoman WHO, kategori BMI meliputi: Kekurangan berat
+badan (<18.5), Normal (18.5?24.9), Kelebihan berat badan (25?29.9), dan Obesitas (>30).
+Selain BMI, aplikasi fitness modern juga memanfaatkan metrik lain seperti estimasi
+kalori yang terbakar, yang dihitung berdasarkan jenis latihan, jumlah set/repetisi, durasi, dan
+berat badan pengguna menggunakan formula MET (Metabolic Equivalent of Task). Tracking
+berat badan dari waktu ke waktu juga menjadi indikator penting untuk mengevaluasi
+efektivitas suatu program fitness.
+2.7 Tinjauan Aplikasi Sejenis
+Fitur MyFitnessPal Strava Nike Training Aplikasi Ini
+Tracking
+Latihan
+? ? ? ?
+Panduan Nutrisi ? ? Terbatas ?
+Animasi
+Gerakan
+? ? Terbatas ? (Lottie)
+AI Chatbot ? ? ? ? (Gemini)
+Bahasa
+Indonesia
+? ? ? ?
+Streak &
+Gamifikasi
+? ? Terbatas ?
+Tabel 2.1 Perbandingan Aplikasi Fitness Sejenis
+Berdasarkan tabel perbandingan di atas, terlihat bahwa aplikasi yang dikembangkan
+dalam proyek ini menawarkan kombinasi fitur yang lebih lengkap dibandingkan kompetitor,
+terutama dalam hal animasi panduan gerakan berbasis Lottie, integrasi AI chatbot, dan
+=== PAGE 10 ===
+8
+dukungan Bahasa Indonesia ? tiga aspek yang tidak dimiliki secara bersamaan oleh aplikasi
+sejenis.
+=== PAGE 11 ===
+9
+BAB III
+FITUR APLIKASI
+3.1 Gambaran Umum Aplikasi
+Aplikasi fitness tracker ini dibangun menggunakan Flutter sebagai framework
+frontend dan Firebase sebagai backend service. Secara keseluruhan, aplikasi terdiri dari 8
+modul halaman utama yang saling terintegrasi, dengan seluruh data tersimpan secara terpusat
+di Firebase Firestore dan sistem autentikasi dikelola oleh Firebase Authentication. Berikut
+adalah pemetaan pemenuhan requirement wajib:
+Requirement Dosen Implementasi Lokasi di Aplikasi
+Create Tambah log latihan,
+registrasi, mulai program
+Halaman Tracking, Register,
+Program
+Read Dashboard, list latihan,
+detail, riwayat
+Semua halaman utama
+Update Edit profil, update progress,
+edit log
+Halaman Profil, Tracking,
+Program
+Delete Hapus log latihan, batalkan
+program
+Halaman Tracking &
+Program
+Firebase Database Firebase Firestore (semua
+data)
+Seluruh fitur aplikasi
+Firebase Auth Register, Login, Logout Halaman Login/Register &
+Profil
+Animasi >= 2 jenis Hero, Lottie, Animated List,
+Confetti (4 jenis)
+Tracking, Detail Latihan,
+Dashboard
+Tabel 3.1 Pemetaan Requirement Wajib terhadap Fitur Aplikasi
+3.2 Splash Screen dan Onboarding
+Splash screen merupakan halaman pertama yang muncul ketika pengguna membuka
+aplikasi. Pada halaman ini, ditampilkan animasi Lottie berupa ikon atau logo fitness yang
+bergerak selama 2?3 detik, sekaligus dimanfaatkan untuk melakukan inisialisasi koneksi ke
+Firebase di latar belakang. Setelah splash screen selesai, pengguna baru yang belum pernah
+login akan diarahkan ke halaman onboarding.
+Onboarding terdiri dari 2?3 slide yang memperkenalkan fitur-fitur utama aplikasi
+menggunakan PageView widget. Setiap slide menampilkan ilustrasi Lottie, judul fitur, dan
+deskripsi singkat. Pengguna dapat melewati (skip) onboarding jika sudah pernah melihatnya
+=== PAGE 12 ===
+10
+sebelumnya, berkat status yang disimpan di local storage. Fitur ini berkontribusi pada
+pemenuhan requirement animasi pertama (Lottie).
+3.3 Autentikasi Pengguna (Login & Register)
+Modul autentikasi terdiri dari dua halaman utama: halaman registrasi dan halaman
+login. Pada halaman registrasi, pengguna baru diminta mengisi formulir yang mencakup data
+akun (email, password) sekaligus data fisik awal yaitu nama lengkap, usia, tinggi badan, berat
+badan, dan gender. Data fisik ini disimpan di koleksi users/{userId}/profile pada Firestore
+dan digunakan untuk perhitungan BMI otomatis pada halaman dashboard.
+Proses autentikasi sepenuhnya dikelola oleh Firebase Authentication menggunakan
+metode email/password. Validasi input dilakukan secara client-side sebelum request dikirim
+ke Firebase, termasuk validasi format email, kekuatan password, dan kelengkapan data.
+Sebagai fitur opsional, integrasi Google Sign-In dapat ditambahkan untuk kemudahan login
+bagi pengguna yang memiliki akun Google. Tombol logout disediakan di halaman profil dan
+akan menghapus sesi pengguna serta mengarahkannya kembali ke halaman login.
+3.4 Dashboard (Halaman Utama)
+Dashboard merupakan halaman pusat aplikasi yang menampilkan ringkasan kondisi
+terkini pengguna dalam satu layar. Komponen-komponen utama yang ditampilkan pada
+dashboard meliputi:
+? Sapaan personal dengan nama pengguna (misal: "Halo, Budi! Siap latihan hari ini?").
+? Kartu BMI ? menampilkan nilai BMI yang dihitung otomatis dari data profil beserta
+kategori status gizi (Normal, Kelebihan Berat Badan, dst.) dengan indikator warna
+yang intuitif.
+? Ringkasan latihan hari ini ? menampilkan program latihan yang dijadwalkan untuk
+hari berjalan berdasarkan program aktif.
+? Streak counter ? menampilkan jumlah hari berturut-turut pengguna melakukan
+latihan, disertai ikon api (?) sebagai motivasi visual.
+? Kalender mini (mini calendar) ? menandai tanggal-tanggal yang telah berhasil
+dilakukan latihan dengan warna hijau, sehingga pengguna dapat melihat pola
+konsistensi latihan secara sekilas.
+? Tombol quick access menuju program aktif yang sedang berjalan.
+=== PAGE 13 ===
+11
+Seluruh data pada dashboard diambil secara real-time dari Firestore menggunakan
+StreamBuilder, sehingga pembaruan data langsung tercermin tanpa perlu refresh manual. List
+item pada dashboard ditampilkan menggunakan AnimatedList untuk menciptakan efek slide-
+in yang halus.
+3.5 Tracking Latihan Harian
+Modul tracking latihan adalah inti dari aplikasi ini, di mana implementasi penuh dari
+operasi CRUD dilakukan. Pengguna dapat berinteraksi dengan halaman ini melalui kalender
+interaktif yang memungkinkan navigasi antar tanggal untuk melihat atau mengedit log latihan
+pada hari tertentu.
+Setiap latihan yang dicatat memiliki atribut: nama gerakan, jumlah set, jumlah repetisi
+per set, durasi istirahat antar set, dan status penyelesaian (checklist). Pengguna dapat
+menambahkan gerakan latihan baru (Create), melihat detail gerakan (Read), mengubah
+jumlah set atau repetisi (Update), serta menghapus gerakan yang salah dicatat (Delete).
+Fitur unggulan pada modul ini adalah halaman detail latihan yang menampilkan
+animasi Lottie stick man yang memperagakan cara melakukan gerakan olahraga dengan
+teknik yang benar. Transisi dari halaman list latihan ke halaman detail menggunakan Hero
+Animation, di mana gambar atau ikon gerakan akan "terbang" secara animatif dari kartu list
+menuju posisi yang lebih besar di halaman detail. Animated List digunakan untuk
+menampilkan item latihan dengan animasi slide-in saat pertama kali dimuat atau saat item
+baru ditambahkan.
+3.6 Program Fitness Jangka Panjang
+Fitur program menyediakan lima kategori program fitness yang dapat dipilih
+pengguna sesuai dengan tujuan kesehatannya, yaitu: Bulking (penambahan massa otot),
+Cutting (penurunan lemak tubuh), Diet (pengaturan pola makan), Cardio Endurance
+(peningkatan ketahanan kardiovaskular), dan Flexibility & Recovery (kelenturan dan
+pemulihan). Setiap program memiliki durasi yang telah ditentukan (30 atau 60 hari).
+Setiap hari dalam program berisi rencana latihan yang otomatis dijadwalkan, panduan
+menu makanan lengkap (sarapan, makan siang, makan malam, dan snack), serta aturan Do &
+Don't yang harus dipatuhi selama menjalani program. Saat pengguna memulai program, data
+program aktif tersimpan di Firestore (Create). Pengguna kemudian menandai hari yang sudah
+=== PAGE 14 ===
+12
+diselesaikan untuk memperbarui progress (Update), dan dapat membatalkan program kapan
+saja (Delete).
+Data master program (daftar program, rencana harian, latihan, menu makanan)
+disimpan di koleksi programs/ di Firestore yang dapat diakses oleh semua pengguna,
+sementara data progress individual tersimpan di dokumen pengguna masing-masing di
+koleksi users/{userId}/activeProgram.
+3.7 Chatbot AI ? Konsultasi Fitness
+Fitur chatbot merupakan keunggulan kompetitif aplikasi ini. Antarmuka chat
+dirancang menyerupai aplikasi pesan instan populer dengan tampilan bubble chat yang
+membedakan pesan pengguna dan respons AI. Chatbot ditenagai oleh Gemini API dari
+Google, yang diakses melalui REST API dengan autentikasi menggunakan API key.
+Setiap kali pengguna mengirim pesan, aplikasi menyertakan system prompt yang
+berisi: instruksi untuk membatasi topik hanya pada fitness, olahraga, dan nutrisi; data
+program aktif pengguna; progress yang telah dicapai; serta riwayat percakapan sebelumnya
+untuk menjaga konteks pembicaraan. Dengan demikian, chatbot mampu memberikan saran
+yang personal dan relevan, misalnya: "Kamu sedang di hari ke-14 program Bulking. Latihan
+dada hari ini sudah selesai, bagus! Untuk optimasi, coba tambah protein shake setelah
+latihan."
+Riwayat percakapan disimpan di koleksi users/{userId}/chatHistory di Firestore,
+sehingga pengguna dapat melihat kembali saran yang pernah diberikan. Ini memenuhi
+requirement Read pada kategori CRUD.
+3.8 Riwayat dan Progress
+Halaman riwayat dan progress menampilkan data historis aktivitas pengguna dalam
+berbagai format visualisasi. Menggunakan library grafik Flutter seperti fl_chart atau
+syncfusion_flutter_charts, beberapa jenis grafik ditampilkan:
+? Grafik berat badan dari waktu ke waktu (line chart) ? memvisualisasikan perubahan
+berat badan pengguna sejak pertama kali menggunakan aplikasi.
+? Total latihan per minggu (bar chart) ? menampilkan jumlah sesi latihan dalam setiap
+minggu untuk memantau konsistensi.
+? Estimasi kalori terbakar (area chart) ? memperkirakan total kalori yang terbakar
+berdasarkan jenis dan volume latihan.
+=== PAGE 15 ===
+13
+? Konsistensi streak (calendar heatmap) ? menampilkan intensitas aktivitas dalam
+format kalender bulanan.
+Halaman ini juga dilengkapi dengan fitur filter berdasarkan program atau rentang
+tanggal tertentu, serta timeline riwayat yang menampilkan semua aktivitas secara kronologis.
+Pengguna dapat mengetuk tanggal tertentu pada timeline untuk melihat detail lengkap latihan
+dan menu makanan pada hari tersebut.
+3.9 Profil Pengguna
+Halaman profil menampilkan informasi lengkap pengguna termasuk foto profil, nama,
+usia, tinggi badan, berat badan, dan nilai BMI terkini. Pengguna dapat mengedit data fisiknya
+kapan saja melalui tombol Edit Profil ? perubahan data langsung diperbarui di Firestore
+(Update) dan secara otomatis merefresh kalkulasi BMI pada dashboard.
+Fitur update berat badan memungkinkan pengguna mencatat perubahan berat
+badannya secara berkala. Setiap entri berat badan baru tersimpan di koleksi
+users/{userId}/weightHistory dengan timestamp, sehingga dapat divisualisasikan pada grafik
+di halaman Progress. Halaman profil juga menyediakan pengaturan notifikasi reminder
+latihan dan tombol Logout yang mengakhiri sesi Firebase Authentication.
+3.10 Pemetaan Animasi
+Aplikasi ini mengimplementasikan 4 jenis animasi (melampaui requirement minimal
+2 jenis), masing-masing ditempatkan secara strategis untuk meningkatkan user experience
+pada konteks yang tepat:
+Jenis Animasi Lokasi Implementasi Req. Terpenuhi Tujuan
+Hero Animation List Latihan ? Detail
+Latihan
+Animasi #1 Transisi navigasi yang
+kontekstual
+Lottie Animation Detail Latihan &
+Splash Screen
+Animasi #2 Panduan gerakan &
+loading state
+Animated List Dashboard & Tracking
+Harian
+Animasi #3 List item slide-in yang
+natural
+Confetti Selesaikan program /
+capai streak
+Animasi #4
+(bonus)
+Reward visual untuk
+motivasi
+Tabel 3.2 Pemetaan Implementasi Animasi dalam Aplikasi
+=== PAGE 16 ===
+14
+3.11 Arsitektur Database Firestore
+Struktur database Firebase Firestore dirancang dengan menggunakan pola hierarchical
+document model. Seluruh data pengguna diorganisasikan di bawah koleksi utama users/
+dengan dokumen beridentitas UID unik dari Firebase Authentication. Data master program
+yang bersifat publik disimpan terpisah di koleksi programs/ untuk efisiensi baca. Berikut
+adalah gambaran ringkas struktur koleksi:
+? users/{userId}/profile ? data profil pengguna: nama, email, usia, tinggi, berat, gender,
+URL foto.
+? users/{userId}/activeProgram ? program fitness yang sedang aktif: ID program,
+tanggal mulai, hari berjalan.
+? users/{userId}/workoutLogs/{date} ? log latihan harian per tanggal: daftar gerakan,
+set/rep, dan status selesai.
+? users/{userId}/weightHistory/{date} ? riwayat berat badan per tanggal pencatatan.
+? users/{userId}/chatHistory/{chatId} ? riwayat percakapan chatbot: role
+(user/assistant), pesan, timestamp.
+? users/{userId}/programHistory/{programId} ? riwayat program yang pernah
+dijalankan beserta statusnya.
+? programs/{programId}/dailyPlan/{day} ? rencana harian setiap program: latihan,
+menu makanan, do & don't.
+? exercises/{exerciseId} ? data master gerakan olahraga: nama, deskripsi, otot target,
+kalori per set, URL Lottie.
+3.12 Ringkasan Checklist Requirement
+Requirement Dosen Status & Keterangan
+Create ? Log latihan, mulai program baru, registrasi
+akun
+Read ? Dashboard, daftar latihan, detail program,
+riwayat, chat
+Update ? Edit profil, update progress harian, edit log
+latihan
+Delete ? Hapus log latihan, batalkan program aktif
+Firebase Database ? Semua data di Firebase Firestore
+Firebase Authentication ? Register, Login, Logout via Firebase Auth
+Animasi minimal 2 jenis ? 4 jenis: Hero, Lottie, Animated List, Confetti
+=== PAGE 17 ===
+15
+Requirement Dosen Status & Keterangan
+Halaman Login/Register ? Ada ? dengan validasi lengkap
+Halaman Utama (Dashboard) ? Ada ? BMI, streak, kalender mini, quick
+access
+Halaman Tambah/Edit Data ? Ada ? tambah/edit log latihan & profil
+Halaman Detail ? Ada ? detail latihan (+ Lottie) & detail
+program
+Fitur Tambahan / Bonus ? Chatbot AI (Gemini), Grafik Progress,
+Program Jangka Panjang
+Tabel 3.3 Checklist Pemenuhan Requirement Wajib dan Fitur Tambahan
